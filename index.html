@@ -1,13 +1,21 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YIYUN 필라테스 | 몸과 마음의 균형</title>
+    <title>YIYUN 皮拉提斯 | 身心平衡之旅</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        @font-face {
+            font-family: 'WenDing PL BaoSong';
+            src: url('gbsn00lp-2.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
         :root {
             --white: #FFFFFF;
             --off-white: #FAFAFA;
@@ -29,7 +37,7 @@
         }
 
         body {
-            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'WenDing PL BaoSong', 'Noto Serif KR', 'Noto Serif SC', Georgia, serif;
             background-color: var(--off-white);
             color: var(--dark-text);
             line-height: 1.6;
@@ -63,44 +71,92 @@
             }
         }
 
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            color: var(--dark-text);
-            text-transform: uppercase;
+        .logo-link {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo-link:hover {
+            opacity: 0.7;
+        }
+
+        .logo-svg {
+            display: block;
+        }
+
+        /* 햄버거 메뉴 버튼 */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--dark-text);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
         }
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
             list-style: none;
         }
 
         .nav-links a {
             color: var(--medium-gray);
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
+            font-size: 0.85rem;
+            font-weight: 400;
             letter-spacing: 0.02em;
             position: relative;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, font-weight 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            color: var(--dark-text);
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: -8px;
             left: 0;
             width: 0;
             height: 2px;
             background: var(--dark-text);
-            transition: width 0.3s ease;
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
+        .nav-links a:hover::after {
             width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--dark-text);
+            font-weight: 700;
         }
 
         .nav-links a:hover,
@@ -126,7 +182,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center;
+            object-position: center center;
             display: block;
         }
 
@@ -500,6 +556,150 @@
             border-bottom: 1px solid var(--light-gray);
         }
 
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            position: relative;
+            background: var(--white);
+            border-radius: 12px;
+            max-width: 700px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            background-color: var(--soft-gray);
+            border-radius: 12px 12px 0 0;
+            display: none;
+        }
+
+        .modal-image.has-image {
+            display: block;
+        }
+
+        .modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 12px 12px 0 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-close {
+            position: sticky;
+            top: 0;
+            right: 0;
+            float: right;
+            background: var(--white);
+            border: none;
+            font-size: 2rem;
+            line-height: 1;
+            cursor: pointer;
+            padding: 1rem 1.5rem;
+            color: var(--medium-gray);
+            transition: all 0.2s ease;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            color: var(--dark-text);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 1rem 2.5rem 3rem;
+            clear: both;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.01em;
+        }
+
+        .modal-description {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--medium-gray);
+        }
+
+        .modal-description ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .modal-description li {
+            padding: 0.6rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .modal-description li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--dark-text);
+            font-weight: bold;
+        }
+
+        /* 카드에 클릭 커서 추가 */
+        .content-card,
+        .instructor-card {
+            cursor: pointer;
+        }
+
+        .content-card:active,
+        .instructor-card:active {
+            transform: translateY(-3px) scale(0.98);
+        }
+
         /* 반응형 이미지 강화 */
         .card-image {
             width: 100%;
@@ -724,9 +924,55 @@
                 padding: 1rem 1.5rem;
             }
 
+            .logo-svg {
+                width: 88px;
+                height: 26px;
+            }
+
+            /* 햄버거 버튼 표시 */
+            .hamburger {
+                display: flex;
+            }
+
+            /* 모바일 메뉴 */
             .nav-links {
-                gap: 1.2rem;
-                font-size: 0.8rem;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                max-width: 300px;
+                height: 100vh;
+                background: var(--white);
+                flex-direction: column;
+                gap: 0;
+                padding: 80px 0 2rem;
+                box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+                transition: right 0.3s ease;
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links li {
+                width: 100%;
+                border-bottom: 1px solid var(--light-gray);
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1.2rem 2rem;
+                font-size: 0.95rem;
+                text-align: left;
+            }
+
+            .nav-links a::after {
+                display: none;
+            }
+
+            .nav-links a.active {
+                background: var(--soft-gray);
             }
 
             .hero-title {
@@ -753,8 +999,20 @@
                 font-size: 0.9rem;
             }
 
-            .hero-prev { left: 1rem; }
-            .hero-next { right: 1rem; }
+            .hero-prev { left: 0.5rem; }
+            .hero-next { right: 0.5rem; }
+
+            .hero-dots {
+                bottom: 1.5rem;
+            }
+
+            .hero-bg img {
+                object-position: center center;
+            }
+
+            .modal-image {
+                height: 200px;
+            }
 
             .contents,
             .announcements {
@@ -782,21 +1040,88 @@
             .card-image {
                 height: 200px;
             }
+
+            .modal-content {
+                width: 95%;
+                max-height: 90vh;
+            }
+
+            .modal-body {
+                padding: 0.5rem 1.5rem 2rem;
+            }
+
+            .modal-title {
+                font-size: 1.5rem;
+            }
+
+            .modal-close {
+                padding: 0.8rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-svg {
+                width: 77px;
+                height: 22px;
+            }
+
+            .nav-links {
+                width: 80%;
+            }
+
+            .hero-title {
+                font-size: 2.2rem !important;
+            }
+
+            .hero-subtitle {
+                font-size: 0.85rem;
+                padding: 0 1rem;
+            }
+
+            .hero-arrow {
+                width: 32px;
+                height: 32px;
+                font-size: 0.8rem;
+            }
+
+            .hero-prev { left: 0.3rem; }
+            .hero-next { right: 0.3rem; }
+
+            .hero-dots {
+                bottom: 1rem;
+            }
+
+            .hero-dot {
+                width: 6px;
+                height: 6px;
+            }
         }
     </style>
 </head>
 <body>
     <nav class="header-nav">
-        <div class="logo">YIYUN</div>
+        <a href="#hero" class="logo-link">
+            <svg class="logo-svg" width="110" height="32" viewBox="0 0 110 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <text x="2" y="25" font-family="'WenDing PL BaoSong', 'Noto Serif KR', serif" font-size="26" font-weight="300" letter-spacing="0.18em" fill="#2C2C2C">YIYUN</text>
+            </svg>
+        </a>
+        
+        <!-- 햄버거 버튼 (모바일) -->
+        <button class="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
         <ul class="nav-links">
-            <li><a href="#courses">강좌</a></li>
-            <li><a href="#instructors">강사</a></li>
-            <li><a href="#training">양성과정</a></li>
-            <li><a href="#contact">문의하기</a></li>
+            <li><a href="#courses">課程介紹</a></li>
+            <li><a href="#instructors">教練介紹</a></li>
+            <li><a href="#training">教練培訓課程</a></li>
+            <li><a href="#contact">聯絡我們</a></li>
         </ul>
     </nav>
 
-    <section class="hero">
+    <section class="hero" id="hero">
         <div class="hero-slider">
 
             <!-- 슬라이드 1: 메인 -->
@@ -809,10 +1134,10 @@
                 <div class="hero-decoration-2"></div>
                 <div class="hero-content">
                     <h1 class="hero-title">YIYUN</h1>
-                    <p class="hero-subtitle">몸과 마음의 균형을 찾아가는 여정</p>
+                    <p class="hero-subtitle">尋找身心平衡的旅程</p>
                     <div class="hero-cta">
-                        <a href="#courses" class="btn btn-primary">강좌 보기</a>
-                        <a href="#contact" class="btn btn-secondary">문의하기</a>
+                        <a href="#courses" class="btn btn-primary">查看課程</a>
+                        <a href="#contact" class="btn btn-secondary">聯絡我們</a>
                     </div>
                 </div>
             </div>
@@ -824,11 +1149,11 @@
                 </div>
                 <div class="hero-overlay"></div>
                 <div class="hero-content">
-                    <span class="hero-badge">채용</span>
-                    <h1 class="hero-title" style="font-size: 3.5rem;">강사 채용</h1>
-                    <p class="hero-subtitle">YIYUN과 함께 성장할 열정적인<br>필라테스 강사를 모집합니다</p>
+                    <span class="hero-badge">招聘</span>
+                    <h1 class="hero-title" style="font-size: 3.5rem;">教練招募</h1>
+                    <p class="hero-subtitle">誠徵與 YIYUN 一同成長的<br>熱情皮拉提斯教練</p>
                     <div class="hero-cta">
-                        <a href="#contact" class="btn btn-primary">지원하기</a>
+                        <a href="#contact" class="btn btn-primary">立即應徵</a>
                     </div>
                 </div>
             </div>
@@ -840,11 +1165,11 @@
                 </div>
                 <div class="hero-overlay"></div>
                 <div class="hero-content">
-                    <span class="hero-badge">축하</span>
-                    <h1 class="hero-title" style="font-size: 3rem;">선생님 합격 축하</h1>
-                    <p class="hero-subtitle">새로운 강사 선생님들의 합격을 진심으로 축하드립니다<br>YIYUN 가족이 되신 것을 환영합니다 🎉</p>
+                    <span class="hero-badge">恭賀</span>
+                    <h1 class="hero-title" style="font-size: 3rem;">恭賀教練錄取</h1>
+                    <p class="hero-subtitle">誠摯恭賀新進教練錄取<br>歡迎加入 YIYUN 大家庭 🎉</p>
                     <div class="hero-cta">
-                        <a href="#instructors" class="btn btn-primary">강사 소개 보기</a>
+                        <a href="#instructors" class="btn btn-primary">認識教練</a>
                     </div>
                 </div>
             </div>
@@ -864,23 +1189,23 @@
     <section class="contents" id="courses">
         <div class="contents-category">
             <div class="category-header">
-                <h2 class="category-main-title">강좌 안내</h2>
-                <p class="category-sub">당신에게 맞는 필라테스를 찾아보세요</p>
+                <h2 class="category-main-title">課程介紹</h2>
+                <p class="category-sub">找到最適合您的皮拉提斯課程</p>
                 <span class="tag">COURSES</span>
             </div>
             <div class="content-grid">
                 <div class="content-card fade-in">
                     <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&h=440&fit=crop&q=80&auto=format" alt="필라테스 입문" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&h=440&fit=crop&q=80&auto=format" alt="皮拉提斯入門" loading="lazy">
                     </div>
                     <div class="card-body">
-                        <h4>필라테스가 처음이라면</h4>
+                        <h4>皮拉提斯入門</h4>
                         <ul class="details">
-                            <li>필라테스 기초 동작 학습</li>
-                            <li>호흡법과 코어 강화</li>
-                            <li>소요 시간: 50분</li>
-                            <li>수업당 4명 소수 정예</li>
-                            <li>난이도: 초급</li>
+                            <li>學習皮拉提斯基礎動作</li>
+                            <li>呼吸法與核心強化</li>
+                            <li>課程時間：50分鐘</li>
+                            <li>每班4人小班制</li>
+                            <li>難度：初級</li>
                         </ul>
                     </div>
                 </div>
@@ -889,13 +1214,13 @@
                         <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&h=440&fit=crop&q=80&auto=format" alt="임산부 필라테스" loading="lazy">
                     </div>
                     <div class="card-body">
-                        <h4>임산부 및 산후 여성을 위한 필라테스</h4>
+                        <h4>孕產婦皮拉提斯</h4>
                         <ul class="details">
-                            <li>안전한 산전/산후 운동</li>
-                            <li>골반 회복 및 체형 교정</li>
-                            <li>소요 시간: 50분</li>
-                            <li>수업당 4명</li>
-                            <li>난이도: 초급</li>
+                            <li>安全的產前/產後運動</li>
+                            <li>骨盆恢復與體態矯正</li>
+                            <li>課程時間：50分鐘</li>
+                            <li>每班4人</li>
+                            <li>難度：初級</li>
                         </ul>
                     </div>
                 </div>
@@ -904,43 +1229,43 @@
                         <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&h=440&fit=crop&q=80&auto=format" alt="체형 교정 필라테스" loading="lazy">
                     </div>
                     <div class="card-body">
-                        <h4>체형 교정 필라테스</h4>
+                        <h4>體態矯正皮拉提斯</h4>
                         <ul class="details">
-                            <li>거북목, 척추측만 개선</li>
-                            <li>자세 분석 및 맞춤 운동</li>
-                            <li>소요 시간: 60분</li>
-                            <li>수업당 3명</li>
-                            <li>난이도: 중급</li>
+                            <li>改善烏龜頸、脊椎側彎</li>
+                            <li>姿勢分析與客製化運動</li>
+                            <li>課程時間：60分鐘</li>
+                            <li>每班3人</li>
+                            <li>難度：中級</li>
                         </ul>
                     </div>
                 </div>
                 <div class="content-card fade-in">
                     <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=440&fit=crop&q=80&auto=format" alt="프라이빗 레슨" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=440&fit=crop&q=80&auto=format" alt="一對一私人課程" loading="lazy">
                     </div>
                     <div class="card-body">
-                        <h4>프라이빗 레슨</h4>
+                        <h4>一對一私人課程</h4>
                         <ul class="details">
-                            <li>1:1 맞춤형 개인 수업</li>
-                            <li>목표에 따른 커스터마이징</li>
-                            <li>소요 시간: 60분</li>
-                            <li>개인 집중 관리</li>
-                            <li>난이도: 전 레벨</li>
+                            <li>1:1 客製化個人課程</li>
+                            <li>依目標客製化訓練</li>
+                            <li>課程時間：60分鐘</li>
+                            <li>個人專屬指導</li>
+                            <li>難度：全級別</li>
                         </ul>
                     </div>
                 </div>
                 <div class="content-card fade-in">
                     <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?w=600&h=440&fit=crop&q=80&auto=format" alt="재활 필라테스" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?w=600&h=440&fit=crop&q=80&auto=format" alt="復健皮拉提斯" loading="lazy">
                     </div>
                     <div class="card-body">
-                        <h4>재활 필라테스</h4>
+                        <h4>復健皮拉提斯</h4>
                         <ul class="details">
-                            <li>부상 후 회복 운동</li>
-                            <li>통증 완화 및 근력 강화</li>
-                            <li>소요 시간: 60분</li>
-                            <li>수업당 2-3명</li>
-                            <li>난이도: 초급-중급</li>
+                            <li>傷後復健運動</li>
+                            <li>緩解疼痛與肌力強化</li>
+                            <li>課程時間：60分鐘</li>
+                            <li>每班2-3人</li>
+                            <li>難度：初中級</li>
                         </ul>
                     </div>
                 </div>
@@ -949,13 +1274,13 @@
                         <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=440&fit=crop&q=80&auto=format" alt="강사 교육 과정" loading="lazy">
                     </div>
                     <div class="card-body">
-                        <h4>필라테스 선생님 교육 과정</h4>
+                        <h4>教練培訓課程</h4>
                         <ul class="details">
-                            <li>전문 강사 양성 프로그램</li>
-                            <li>체계적인 이론 및 실습</li>
-                            <li>자격증 취득 지원</li>
-                            <li>6개월 집중 과정</li>
-                            <li>총 500시간 커리큘럼</li>
+                            <li>專業教練培訓計劃</li>
+                            <li>系統性理論與實務</li>
+                            <li>證照取得輔導</li>
+                            <li>6個月密集訓練</li>
+                            <li>總計500小時課程</li>
                         </ul>
                     </div>
                 </div>
@@ -964,114 +1289,102 @@
 
         <div class="contents-category" id="instructors">
             <div class="category-header">
-                <h2 class="category-main-title">강사 소개</h2>
-                <p class="category-sub">YIYUN의 전문 강사진을 소개합니다</p>
+                <h2 class="category-main-title">教練介紹</h2>
+                <p class="category-sub">認識 YIYUN 的專業教練團隊</p>
                 <span class="tag">INSTRUCTORS</span>
             </div>
             <div class="instructors-grid">
                 <div class="instructor-card fade-in">
                     <div class="instructor-avatar">P</div>
                     <h4 class="instructor-name">Pina</h4>
-                    <p>필라테스 마스터 트레이너</p>
-                    <p style="font-size: 0.85rem; margin-top: 0.5rem; color: var(--medium-gray);">15년 경력 · PMA 인증</p>
+                    <p>皮拉提斯大師級訓練師</p>
+                    <p style="font-size: 0.85rem; margin-top: 0.5rem; color: var(--medium-gray);">15年資歷 · PMA 認證</p>
                 </div>
                 <div class="instructor-card fade-in">
                     <div class="instructor-avatar">J</div>
                     <h4 class="instructor-name">Jingjing</h4>
-                    <p>재활 필라테스 전문가</p>
-                    <p style="font-size: 0.85rem; margin-top: 0.5rem; color: var(--medium-gray);">12년 경력 · 물리치료사</p>
-                </div>
-                <div class="instructor-card fade-in">
-                    <div class="instructor-avatar">M</div>
-                    <h4 class="instructor-name">Mina</h4>
-                    <p>산전/산후 필라테스 강사</p>
-                    <p style="font-size: 0.85rem; margin-top: 0.5rem; color: var(--medium-gray);">8년 경력 · 임산부 케어 전문</p>
-                </div>
-                <div class="instructor-card fade-in">
-                    <div class="instructor-avatar">S</div>
-                    <h4 class="instructor-name">Soyeon</h4>
-                    <p>체형교정 필라테스 강사</p>
-                    <p style="font-size: 0.85rem; margin-top: 0.5rem; color: var(--medium-gray);">10년 경력 · 척추교정 전문</p>
+                    <p>復健皮拉提斯專家</p>
+                    <p style="font-size: 0.85rem; margin-top: 0.5rem; color: var(--medium-gray);">12年資歷 · 物理治療師</p>
                 </div>
             </div>
         </div>
 
         <div class="contents-category" id="training">
             <div class="category-header">
-                <h2 class="category-main-title">강사 양성 과정</h2>
-                <p class="category-sub">체계적인 교육으로 전문 강사의 꿈을 이루세요</p>
+                <h2 class="category-main-title">教練培訓課程</h2>
+                <p class="category-sub">透過系統性教育實現專業教練夢想</p>
                 <span class="tag">TRAINING PROGRAM</span>
             </div>
             <div class="content-grid">
                 <div class="content-card training-card fade-in">
                     <div class="card-body">
-                        <h4>6개월 집중 교육 과정</h4>
+                        <h4>6個月密集培訓課程</h4>
                         <ul class="details">
-                            <li>총 500시간 심화 커리큘럼</li>
-                            <li>매주 화/목 오전 10시-오후 5시</li>
-                            <li>이론 40% + 실습 60% 병행</li>
-                            <li>소수 정예 8명 제한</li>
-                            <li>수료 후 취업 연계 지원</li>
+                            <li>總計500小時進階課程</li>
+                            <li>每週二/四 上午10點-下午5點</li>
+                            <li>理論40% + 實作60%</li>
+                            <li>精緻小班8人限定</li>
+                            <li>結業後就業媒合支援</li>
                         </ul>
                     </div>
                 </div>
                 <div class="content-card training-card fade-in">
                     <div class="card-body">
-                        <h4>해부학 및 운동생리학</h4>
+                        <h4>解剖學與運動生理學</h4>
                         <ul class="details">
-                            <li>인체 근골격계 구조 이해</li>
-                            <li>움직임 분석과 평가</li>
-                            <li>과학적 운동 원리 학습</li>
-                            <li>부상 예방 및 재활 이론</li>
-                            <li>영양학 기초</li>
+                            <li>人體肌骨系統結構</li>
+                            <li>動作分析與評估</li>
+                            <li>科學運動原理</li>
+                            <li>傷害預防與復健理論</li>
+                            <li>營養學基礎</li>
                         </ul>
                     </div>
                 </div>
                 <div class="content-card training-card fade-in">
                     <div class="card-body">
-                        <h4>매트 필라테스 마스터</h4>
+                        <h4>墊上皮拉提斯精通</h4>
                         <ul class="details">
-                            <li>클래식 매트 동작 150가지</li>
-                            <li>동작별 수정 및 응용</li>
-                            <li>레벨별 프로그램 구성</li>
-                            <li>큐잉 및 티칭 스킬</li>
-                            <li>시퀀스 디자인</li>
+                            <li>經典墊上動作150式</li>
+                            <li>動作修正與應用</li>
+                            <li>分級課程設計</li>
+                            <li>口令與教學技巧</li>
+                            <li>編排設計</li>
                         </ul>
                     </div>
                 </div>
                 <div class="content-card training-card fade-in">
                     <div class="card-body">
-                        <h4>장비 실기 교육</h4>
+                        <h4>器械實務教學</h4>
                         <ul class="details">
-                            <li>리포머 완벽 마스터</li>
-                            <li>캐딜락, 체어, 배럴 활용</li>
-                            <li>소도구 활용법</li>
-                            <li>장비별 안전 관리</li>
-                            <li>개인별 프로그램 설계</li>
+                            <li>Reformer 完整精通</li>
+                            <li>Cadillac、Chair、Barrel 應用</li>
+                            <li>小道具活用</li>
+                            <li>器械安全管理</li>
+                            <li>個人化課程設計</li>
                         </ul>
                     </div>
                 </div>
                 <div class="content-card training-card fade-in">
                     <div class="card-body">
-                        <h4>특수 대상 케어</h4>
+                        <h4>特殊族群照護</h4>
                         <ul class="details">
-                            <li>임산부 및 산후 관리</li>
-                            <li>시니어 필라테스</li>
-                            <li>청소년 체형 교정</li>
-                            <li>재활 및 통증 관리</li>
-                            <li>운동선수 컨디셔닝</li>
+                            <li>孕產婦管理</li>
+                            <li>銀髮族皮拉提斯</li>
+                            <li>青少年體態矯正</li>
+                            <li>復健與疼痛管理</li>
+                            <li>運動員體能訓練</li>
                         </ul>
                     </div>
                 </div>
                 <div class="content-card training-card fade-in">
                     <div class="card-body">
-                        <h4>비즈니스 & 실무</h4>
+                        <h4>商業實務</h4>
                         <ul class="details">
-                            <li>스튜디오 운영 노하우</li>
-                            <li>마케팅 및 브랜딩</li>
-                            <li>고객 상담 및 관리</li>
-                            <li>수업 스케줄 관리</li>
-                            <li>자격증 시험 준비</li>
+                            <li>工作室經營訣竅</li>
+                            <li>行銷與品牌經營</li>
+                            <li>客戶諮詢與管理</li>
+                            <li>課程排程管理</li>
+                            <li>證照考試準備</li>
                         </ul>
                     </div>
                 </div>
@@ -1079,27 +1392,40 @@
         </div>
     </section>
 
+    <!-- 모달 -->
+    <div class="modal" id="courseModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-image"></div>
+            <div class="modal-body">
+                <h2 class="modal-title"></h2>
+                <div class="modal-description"></div>
+            </div>
+        </div>
+    </div>
+
     <footer id="contact">
         <div class="footer-content">
             <div class="footer-section">
                 <h4>YIYUN Pilates</h4>
-                <p>몸과 마음의 균형을 찾아가는 여정</p>
-                <p>전문적이고 따뜻한 필라테스 스튜디오</p>
+                <p>尋找身心平衡的旅程</p>
+                <p>專業而溫馨的皮拉提斯工作室</p>
             </div>
             <div class="footer-section">
-                <h4>문의</h4>
-                <a href="#contact">문의하기</a>
-                <a href="/cdn-cgi/l/email-protection#f0999e969fb0899989859ede939f9d">이메일: <span class="__cf_email__" data-cfemail="741d1a121b340d1d0d011a5a171b19">[email&#160;protected]</span></a>
+                <h4>聯絡我們</h4>
+                <a href="#contact">聯絡表單</a>
+                <a href="/cdn-cgi/l/email-protection#f0999e969fb0899989859ede939f9d">電子郵件: <span class="__cf_email__" data-cfemail="741d1a121b340d1d0d011a5a171b19">[email&#160;protected]</span></a>
             </div>
             <div class="footer-section">
-                <h4>채용</h4>
-                <a href="#recruitment">강사채용 안내</a>
-                <a href="#training">강사 양성 과정</a>
+                <h4>招聘資訊</h4>
+                <a href="#recruitment">教練招募</a>
+                <a href="#training">教練培訓課程</a>
             </div>
             <div class="footer-section">
-                <h4>소셜 미디어</h4>
+                <h4>社群媒體</h4>
                 <div class="social-links">
-                    <a href="#instagram" aria-label="Instagram">
+                    <a href="https://www.instagram.com/kpia.tw/" target="_blank" rel="noopener" aria-label="Instagram">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -1157,28 +1483,90 @@
         });
 
         // Active nav link on scroll
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section[id]');
+        function updateActiveNav() {
             const navLinks = document.querySelectorAll('.nav-links a');
-            const headerHeight = document.querySelector('.header-nav').offsetHeight;
+            const scrollPos = window.scrollY + 300; // 헤더 높이 + 여유
             
-            let current = '';
+            let currentSection = '';
             
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - headerHeight - 100;
-                const sectionHeight = section.offsetHeight;
-                
-                if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
-                    current = section.getAttribute('id');
+            // 각 섹션 확인
+            const courses = document.querySelector('#courses');
+            const instructors = document.querySelector('#instructors');
+            const training = document.querySelector('#training');
+            const contact = document.querySelector('#contact');
+            
+            const sections = [
+                { id: '#courses', element: courses },
+                { id: '#instructors', element: instructors },
+                { id: '#training', element: training },
+                { id: '#contact', element: contact }
+            ];
+            
+            // 현재 스크롤 위치에 해당하는 섹션 찾기
+            for (let i = sections.length - 1; i >= 0; i--) {
+                const section = sections[i];
+                if (section.element) {
+                    const sectionTop = section.element.offsetTop;
+                    if (scrollPos >= sectionTop - 100) {
+                        currentSection = section.id;
+                        break;
+                    }
                 }
-            });
+            }
             
+            // 최상단에서는 active 제거
+            if (window.scrollY < 200) {
+                currentSection = '';
+            }
+            
+            // active 클래스 업데이트
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
+                if (currentSection && link.getAttribute('href') === currentSection) {
                     link.classList.add('active');
                 }
             });
+        }
+        
+        // 스크롤 이벤트 (디바운싱)
+        let scrollTimer;
+        window.addEventListener('scroll', () => {
+            if (scrollTimer) clearTimeout(scrollTimer);
+            scrollTimer = setTimeout(updateActiveNav, 100);
+        });
+        
+        // 페이지 로드 시 실행
+        window.addEventListener('load', updateActiveNav);
+
+        // ── Hamburger Menu ──────────────────────────────────────
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // 메뉴 항목 클릭 시 메뉴 닫기
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // 메뉴 외부 클릭 시 닫기
+        document.addEventListener('click', (e) => {
+            if (navLinks.classList.contains('active') && 
+                !navLinks.contains(e.target) && 
+                !hamburger.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            }
         });
 
         // ── Hero Slider ──────────────────────────────────────
@@ -1249,4 +1637,66 @@
 
         // 시작
         startHeroTimer();
+
+        // ── Modal System ──────────────────────────────────────
+        const modal = document.getElementById('courseModal');
+        const modalTitle = modal.querySelector('.modal-title');
+        const modalDescription = modal.querySelector('.modal-description');
+        const modalImage = modal.querySelector('.modal-image');
+        const modalClose = modal.querySelector('.modal-close');
+        const modalOverlay = modal.querySelector('.modal-overlay');
+
+        // 모든 클릭 가능한 카드에 이벤트 추가
+        document.querySelectorAll('.content-card, .instructor-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const title = card.querySelector('h4').textContent;
+                const details = card.querySelector('.details, p');
+                const imageElement = card.querySelector('.card-image img');
+                
+                modalTitle.textContent = title;
+                
+                // 이미지 처리
+                if (imageElement) {
+                    modalImage.style.backgroundImage = `url(${imageElement.src})`;
+                    modalImage.classList.add('has-image');
+                } else {
+                    modalImage.style.backgroundImage = '';
+                    modalImage.classList.remove('has-image');
+                }
+                
+                // 내용 처리
+                if (details.tagName === 'UL') {
+                    // 강좌/양성과정 카드
+                    const items = Array.from(details.querySelectorAll('li'))
+                        .map(li => li.textContent)
+                        .join('</li><li>');
+                    modalDescription.innerHTML = `<ul><li>${items}</li></ul>`;
+                } else {
+                    // 강사 카드
+                    const allText = Array.from(card.querySelectorAll('p'))
+                        .map(p => p.textContent)
+                        .join('<br>');
+                    modalDescription.innerHTML = allText;
+                }
+                
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // 모달 닫기
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        modalClose.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', closeModal);
+        
+        // ESC 키로 닫기
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
     </script>
