@@ -784,6 +784,15 @@
             font-weight: 400;
         }
 
+        /* 중국어 전각 쉼표 (、) 스타일 조정 */
+        .card-body .details li {
+            letter-spacing: 0;
+        }
+        
+        .card-body .details li::after {
+            content: '';
+        }
+
         .card-body .details li::before {
             content: '•';
             position: absolute;
@@ -1160,7 +1169,7 @@
                 <div class="hero-content">
                     <span class="hero-badge">招聘</span>
                     <h1 class="hero-title" style="font-size: 3.5rem;">教練招募</h1>
-                    <p class="hero-subtitle">誠徵與 YIYUN 一同成長的<br>熱情皮拉提斯教練</p>
+                    <p class="hero-subtitle">誠徵與 KPIA 一同成長的<br>熱情皮拉提斯教練</p>
                     <div class="hero-cta">
                         <a href="#contact" class="btn btn-primary">立即應徵</a>
                     </div>
@@ -1176,7 +1185,7 @@
                 <div class="hero-content">
                     <span class="hero-badge">恭賀</span>
                     <h1 class="hero-title" style="font-size: 3rem;">恭賀教練錄取</h1>
-                    <p class="hero-subtitle">誠摯恭賀新進教練錄取<br>歡迎加入 YIYUN 大家庭 🎉</p>
+                    <p class="hero-subtitle">誠摯恭賀新進教練錄取<br>歡迎加入 KPIA 大家庭 🎉</p>
                     <div class="hero-cta">
                         <a href="#instructors" class="btn btn-primary">認識教練</a>
                     </div>
@@ -1214,7 +1223,7 @@
                             <li>古典&現代墊上課程/小道具</li>
                             <li>四大器械</li>
                             <li>教學實戰與帶課邏輯</li>
-                            <li>課程天數：12天+1天考核</li>
+                            <li>課程天數: 12天+1天考核</li>
                         </ul>
                     </div>
                 </div>
@@ -1229,7 +1238,7 @@
                             <li>依孕週設計課程的實戰能力</li>
                             <li>動作調整與輔具應用</li>
                             <li>症狀觀察與個別化指導</li>
-                            <li>課程天數：2天課程(共10小時)</li>
+                            <li>課程天數: 2天課程(共10小時)</li>
                         </ul>
                     </div>
                 </div>
@@ -1259,7 +1268,7 @@
                             <li>個人身體評估與目標設定</li>
                             <li>即時動作修正與細節指導</li>
                             <li>進度追蹤與成果管理</li>
-                            <li>課程時間：60分鐘</li>
+                            <li>課程時間: 60分鐘</li>
                         </ul>
                     </div>
                 </div>
@@ -1274,7 +1283,7 @@
                             <li>器械輔助提升訓練效果</li>
                             <li>全身整合訓練</li>
                             <li>韓式皮拉提斯</li>
-                            <li>課程時間：60分鐘</li>
+                            <li>課程時間: 60分鐘</li>
                         </ul>
                     </div>
                 </div>
@@ -1304,12 +1313,18 @@
             </div>
             <div class="instructors-grid">
                 <div class="instructor-card fade-in">
+                    <div class="instructor-image" style="display: none;">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=400&fit=crop&q=80&auto=format" alt="YI CHIEH" loading="lazy">
+                    </div>
                     <div class="instructor-avatar">Y</div>
                     <h4 class="instructor-name">YI CHIEH</h4>
                     <p>皮拉提斯導師</p>
                     <p style="font-size: 0.85rem; margin-top: 0.5rem; color: var(--medium-gray);">KPIA認證導師</p>
                 </div>
                 <div class="instructor-card fade-in">
+                    <div class="instructor-image" style="display: none;">
+                        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&h=400&fit=crop&q=80&auto=format" alt="Finna" loading="lazy">
+                    </div>
                     <div class="instructor-avatar">F</div>
                     <h4 class="instructor-name">Finna</h4>
                     <p>皮拉提斯導師</p>
@@ -1329,9 +1344,9 @@
                     <div class="card-body">
                         <h4>12天培訓課程</h4>
                         <ul class="details">
-                            <li>韓國主流體系、國際雙認證（韓國政府＋美國協會）</li>
-                            <li>教學內容專為亞洲人體型設計，動作更安全有效</li>
-                            <li>獨家「韓式皮拉提斯」教學系統</li>
+                            <li>韓國主流體系, 國際雙認證 (韓國政府+美國協會)</li>
+                            <li>教學內容專為亞洲人體型設計, 動作更安全有效</li>
+                            <li>獨家 "韓式皮拉提斯" 教學系統</li>
                             <li>精緻小班制培訓班</li>
                             <li>結業後提供導師合作平台</li>
                         </ul>
@@ -1344,7 +1359,7 @@
                             <li>人體肌骨系統結構</li>
                             <li>動作分析與評估</li>
                             <li>運動原理</li>
-                            <li>呼吸、核心啟動</li>
+                            <li>呼吸, 核心啟動</li>
                             <li>鬆解法</li>
                         </ul>
                     </div>
@@ -1366,7 +1381,7 @@
                         <h4>四大器械教學</h4>
                         <ul class="details">
                             <li><span lang="en">Reformer</span></li>
-                            <li><span lang="en">Cadillac</span>、<span lang="en">Chair</span>、<span lang="en">Barrel</span> 應用</li>
+                            <li><span lang="en">Cadillac</span>, <span lang="en">Chair</span>, <span lang="en">Barrel</span> 應用</li>
                             <li>壁掛彈簧板</li>
                             <li>口令與教學技巧</li>
                             <li>編排設計</li>
@@ -1377,8 +1392,8 @@
                     <div class="card-body">
                         <h4>小道具運用</h4>
                         <ul class="details">
-                            <li>(皮拉提斯彈力環 彈力帶 瑜伽球 泡沫軸) 100個動作</li>
-                            <li>(波速球 瑜伽大球 沙球) 102個動作</li>
+                            <li>(皮拉提斯彈力環, 彈力帶, 瑜伽球, 泡沫軸) 100個動作</li>
+                            <li>(波速球, 瑜伽大球, 沙球) 102個動作</li>
                             <li>特殊人群運動康復訓練</li>
                             <li>授課技巧和實操</li>
                             <li>帶入多樣性與課程特色</li>
@@ -1470,7 +1485,7 @@
             observer.observe(el);
         });
 
-        // Smooth scroll with header offset
+        // Smooth scroll with header offset (부드러운 애니메이션)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1482,11 +1497,32 @@
                 if (target) {
                     const headerHeight = document.querySelector('.header-nav').offsetHeight;
                     const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+                    const startPosition = window.pageYOffset;
+                    const distance = targetPosition - startPosition;
+                    const duration = 1200; // 1.2초 (더 느리게)
+                    let start = null;
                     
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
+                    // easeInOutCubic 함수로 부드러운 곡선 애니메이션
+                    function easeInOutCubic(t) {
+                        return t < 0.5 
+                            ? 4 * t * t * t 
+                            : 1 - Math.pow(-2 * t + 2, 3) / 2;
+                    }
+                    
+                    function animation(currentTime) {
+                        if (start === null) start = currentTime;
+                        const timeElapsed = currentTime - start;
+                        const progress = Math.min(timeElapsed / duration, 1);
+                        const ease = easeInOutCubic(progress);
+                        
+                        window.scrollTo(0, startPosition + distance * ease);
+                        
+                        if (timeElapsed < duration) {
+                            requestAnimationFrame(animation);
+                        }
+                    }
+                    
+                    requestAnimationFrame(animation);
                 }
             });
         });
@@ -1660,7 +1696,7 @@
             card.addEventListener('click', () => {
                 const title = card.querySelector('h4').textContent;
                 const details = card.querySelector('.details, p');
-                const imageElement = card.querySelector('.card-image img');
+                const imageElement = card.querySelector('.card-image img, .instructor-image img');
                 
                 modalTitle.textContent = title;
                 
