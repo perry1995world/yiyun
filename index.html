@@ -6,7 +6,7 @@
     <title>YIYUN 皮拉提斯 | 身心平衡之旅</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200;300;400;500;600;700&family=Noto+Serif+KR:wght@200;300;400;500;600;700&family=Noto+Serif+SC:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         @font-face {
             font-family: 'WenDing PL BaoSong';
@@ -763,16 +763,25 @@
         }
 
         .card-body .details {
+            font-family: 'Noto Serif TC', 'Noto Serif SC', 'Noto Serif KR', serif;
             font-size: 0.9rem;
             color: var(--medium-gray);
             line-height: 2;
+            font-weight: 200;
         }
 
         .card-body .details li {
+            font-family: 'Noto Serif TC', 'Noto Serif SC', 'Noto Serif KR', serif;
             list-style: none;
             padding-left: 0;
             position: relative;
             margin-bottom: 0.5rem;
+            font-weight: 200;
+        }
+
+        /* 영어 텍스트는 Regular (400) */
+        .card-body .details li span[lang="en"] {
+            font-weight: 400;
         }
 
         .card-body .details li::before {
@@ -909,8 +918,8 @@
 
         /* Scroll animations */
         .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
+            opacity: 1;
+            transform: translateY(0);
             transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
@@ -1115,8 +1124,8 @@
         
         <ul class="nav-links">
             <li><a href="#courses">課程介紹</a></li>
-            <li><a href="#instructors">教練介紹</a></li>
-            <li><a href="#training">教練培訓課程</a></li>
+            <li><a href="#instructors">講師介紹</a></li>
+            <li><a href="#training">皮拉提斯導師培訓課程</a></li>
             <li><a href="#contact">聯絡我們</a></li>
         </ul>
     </nav>
@@ -1133,8 +1142,8 @@
                 <div class="hero-decoration"></div>
                 <div class="hero-decoration-2"></div>
                 <div class="hero-content">
-                    <h1 class="hero-title">YIYUN</h1>
-                    <p class="hero-subtitle">尋找身心平衡的旅程</p>
+                    <h1 class="hero-title">KPIA</h1>
+                    <p class="hero-subtitle">皮拉提斯培訓課程</p>
                     <div class="hero-cta">
                         <a href="#courses" class="btn btn-primary">查看課程</a>
                         <a href="#contact" class="btn btn-secondary">聯絡我們</a>
@@ -1199,13 +1208,13 @@
                         <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&h=440&fit=crop&q=80&auto=format" alt="皮拉提斯入門" loading="lazy">
                     </div>
                     <div class="card-body">
-                        <h4>皮拉提斯入門</h4>
+                        <h4>皮拉提斯培訓課程</h4>
                         <ul class="details">
-                            <li>學習皮拉提斯基礎動作</li>
-                            <li>呼吸法與核心強化</li>
-                            <li>課程時間：50分鐘</li>
-                            <li>每班4人小班制</li>
-                            <li>難度：初級</li>
+                            <li>解剖 x 動作原理</li>
+                            <li>古典&現代墊上課程/小道具</li>
+                            <li>四大器械</li>
+                            <li>教學實戰與帶課邏輯</li>
+                            <li>課程天數：12天+1天考核</li>
                         </ul>
                     </div>
                 </div>
@@ -1216,26 +1225,26 @@
                     <div class="card-body">
                         <h4>孕產婦皮拉提斯</h4>
                         <ul class="details">
-                            <li>安全的產前/產後運動</li>
-                            <li>骨盆恢復與體態矯正</li>
-                            <li>課程時間：50分鐘</li>
-                            <li>每班4人</li>
-                            <li>難度：初級</li>
+                            <li>安全的產前/產後運動指引</li>
+                            <li>依孕週設計課程的實戰能力</li>
+                            <li>動作調整與輔具應用</li>
+                            <li>症狀觀察與個別化指導</li>
+                            <li>課程天數：2天課程(共10小時)</li>
                         </ul>
                     </div>
                 </div>
                 <div class="content-card fade-in">
                     <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&h=440&fit=crop&q=80&auto=format" alt="체형 교정 필라테스" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&h=440&fit=crop&q=80&auto=format" alt="KPIA導師合作平台" loading="lazy">
                     </div>
                     <div class="card-body">
-                        <h4>體態矯正皮拉提斯</h4>
+                        <h4>KPIA導師合作平台</h4>
                         <ul class="details">
-                            <li>改善烏龜頸、脊椎側彎</li>
-                            <li>姿勢分析與客製化運動</li>
-                            <li>課程時間：60分鐘</li>
-                            <li>每班3人</li>
-                            <li>難度：中級</li>
+                            <li>致力於建立長期導師成長與接案平台</li>
+                            <li>不需綁約</li>
+                            <li>只需配合 <span lang="en">KPIA</span> 價格與制度規範</li>
+                            <li>完成 <span lang="en">KPIA</span> 全階培訓導師</li>
+                            <li>導師分級制度</li>
                         </ul>
                     </div>
                 </div>
@@ -1244,13 +1253,13 @@
                         <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=440&fit=crop&q=80&auto=format" alt="一對一私人課程" loading="lazy">
                     </div>
                     <div class="card-body">
-                        <h4>一對一私人課程</h4>
+                        <h4>一對一器械皮拉提斯課程</h4>
                         <ul class="details">
                             <li>1:1 客製化個人課程</li>
-                            <li>依目標客製化訓練</li>
+                            <li>個人身體評估與目標設定</li>
+                            <li>即時動作修正與細節指導</li>
+                            <li>進度追蹤與成果管理</li>
                             <li>課程時間：60分鐘</li>
-                            <li>個人專屬指導</li>
-                            <li>難度：全級別</li>
                         </ul>
                     </div>
                 </div>
@@ -1259,28 +1268,28 @@
                         <img src="https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?w=600&h=440&fit=crop&q=80&auto=format" alt="復健皮拉提斯" loading="lazy">
                     </div>
                     <div class="card-body">
-                        <h4>復健皮拉提斯</h4>
+                        <h4>器械皮拉提斯團體課程</h4>
                         <ul class="details">
-                            <li>傷後復健運動</li>
-                            <li>緩解疼痛與肌力強化</li>
+                            <li>小班制精準指導</li>
+                            <li>器械輔助提升訓練效果</li>
+                            <li>全身整合訓練</li>
+                            <li>韓式皮拉提斯</li>
                             <li>課程時間：60分鐘</li>
-                            <li>每班2-3人</li>
-                            <li>難度：初中級</li>
                         </ul>
                     </div>
                 </div>
                 <div class="content-card fade-in">
                     <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=440&fit=crop&q=80&auto=format" alt="강사 교육 과정" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=440&fit=crop&q=80&auto=format" alt="企業/異業合作" loading="lazy">
                     </div>
                     <div class="card-body">
-                        <h4>教練培訓課程</h4>
+                        <h4>企業/異業合作</h4>
                         <ul class="details">
-                            <li>專業教練培訓計劃</li>
-                            <li>系統性理論與實務</li>
-                            <li>證照取得輔導</li>
-                            <li>6個月密集訓練</li>
-                            <li>總計500小時課程</li>
+                            <li>客製化企業方案</li>
+                            <li>彈性合作模式</li>
+                            <li>專業師資與系統化課程</li>
+                            <li>團隊互動式課程</li>
+                            <li>機構內訓輔導</li>
                         </ul>
                     </div>
                 </div>
@@ -1289,42 +1298,42 @@
 
         <div class="contents-category" id="instructors">
             <div class="category-header">
-                <h2 class="category-main-title">教練介紹</h2>
-                <p class="category-sub">認識 YIYUN 的專業教練團隊</p>
+                <h2 class="category-main-title">導師介紹</h2>
+                <p class="category-sub">認識KPIA的專業團隊</p>
                 <span class="tag">INSTRUCTORS</span>
             </div>
             <div class="instructors-grid">
                 <div class="instructor-card fade-in">
-                    <div class="instructor-avatar">P</div>
-                    <h4 class="instructor-name">Pina</h4>
-                    <p>皮拉提斯大師級訓練師</p>
-                    <p style="font-size: 0.85rem; margin-top: 0.5rem; color: var(--medium-gray);">15年資歷 · PMA 認證</p>
+                    <div class="instructor-avatar">Y</div>
+                    <h4 class="instructor-name">YI CHIEH</h4>
+                    <p>皮拉提斯導師</p>
+                    <p style="font-size: 0.85rem; margin-top: 0.5rem; color: var(--medium-gray);">KPIA認證導師</p>
                 </div>
                 <div class="instructor-card fade-in">
-                    <div class="instructor-avatar">J</div>
-                    <h4 class="instructor-name">Jingjing</h4>
-                    <p>復健皮拉提斯專家</p>
-                    <p style="font-size: 0.85rem; margin-top: 0.5rem; color: var(--medium-gray);">12年資歷 · 物理治療師</p>
+                    <div class="instructor-avatar">F</div>
+                    <h4 class="instructor-name">Finna</h4>
+                    <p>皮拉提斯導師</p>
+                    <p style="font-size: 0.85rem; margin-top: 0.5rem; color: var(--medium-gray);">KPIA認證導師</p>
                 </div>
             </div>
         </div>
 
         <div class="contents-category" id="training">
             <div class="category-header">
-                <h2 class="category-main-title">教練培訓課程</h2>
+                <h2 class="category-main-title">皮拉提斯導師培訓課程</h2>
                 <p class="category-sub">透過系統性教育實現專業教練夢想</p>
                 <span class="tag">TRAINING PROGRAM</span>
             </div>
             <div class="content-grid">
                 <div class="content-card training-card fade-in">
                     <div class="card-body">
-                        <h4>6個月密集培訓課程</h4>
+                        <h4>12天培訓課程</h4>
                         <ul class="details">
-                            <li>總計500小時進階課程</li>
-                            <li>每週二/四 上午10點-下午5點</li>
-                            <li>理論40% + 實作60%</li>
-                            <li>精緻小班8人限定</li>
-                            <li>結業後就業媒合支援</li>
+                            <li>韓國主流體系、國際雙認證（韓國政府＋美國協會）</li>
+                            <li>教學內容專為亞洲人體型設計，動作更安全有效</li>
+                            <li>獨家「韓式皮拉提斯」教學系統</li>
+                            <li>精緻小班制培訓班</li>
+                            <li>結業後提供導師合作平台</li>
                         </ul>
                     </div>
                 </div>
@@ -1334,19 +1343,19 @@
                         <ul class="details">
                             <li>人體肌骨系統結構</li>
                             <li>動作分析與評估</li>
-                            <li>科學運動原理</li>
-                            <li>傷害預防與復健理論</li>
-                            <li>營養學基礎</li>
+                            <li>運動原理</li>
+                            <li>呼吸、核心啟動</li>
+                            <li>鬆解法</li>
                         </ul>
                     </div>
                 </div>
                 <div class="content-card training-card fade-in">
                     <div class="card-body">
-                        <h4>墊上皮拉提斯精通</h4>
+                        <h4>墊上皮拉提斯</h4>
                         <ul class="details">
-                            <li>經典墊上動作150式</li>
-                            <li>動作修正與應用</li>
-                            <li>分級課程設計</li>
+                            <li>古典皮拉提斯29個動作</li>
+                            <li>現代墊上皮拉提斯48個動作</li>
+                            <li>進階和退階動作設計</li>
                             <li>口令與教學技巧</li>
                             <li>編排設計</li>
                         </ul>
@@ -1354,37 +1363,37 @@
                 </div>
                 <div class="content-card training-card fade-in">
                     <div class="card-body">
-                        <h4>器械實務教學</h4>
+                        <h4>四大器械教學</h4>
                         <ul class="details">
-                            <li>Reformer 完整精通</li>
-                            <li>Cadillac、Chair、Barrel 應用</li>
-                            <li>小道具活用</li>
-                            <li>器械安全管理</li>
-                            <li>個人化課程設計</li>
+                            <li><span lang="en">Reformer</span></li>
+                            <li><span lang="en">Cadillac</span>、<span lang="en">Chair</span>、<span lang="en">Barrel</span> 應用</li>
+                            <li>壁掛彈簧板</li>
+                            <li>口令與教學技巧</li>
+                            <li>編排設計</li>
                         </ul>
                     </div>
                 </div>
                 <div class="content-card training-card fade-in">
                     <div class="card-body">
-                        <h4>特殊族群照護</h4>
+                        <h4>小道具運用</h4>
                         <ul class="details">
-                            <li>孕產婦管理</li>
-                            <li>銀髮族皮拉提斯</li>
-                            <li>青少年體態矯正</li>
-                            <li>復健與疼痛管理</li>
-                            <li>運動員體能訓練</li>
+                            <li>(皮拉提斯彈力環 彈力帶 瑜伽球 泡沫軸) 100個動作</li>
+                            <li>(波速球 瑜伽大球 沙球) 102個動作</li>
+                            <li>特殊人群運動康復訓練</li>
+                            <li>授課技巧和實操</li>
+                            <li>帶入多樣性與課程特色</li>
                         </ul>
                     </div>
                 </div>
                 <div class="content-card training-card fade-in">
                     <div class="card-body">
-                        <h4>商業實務</h4>
+                        <h4>課後輔導</h4>
                         <ul class="details">
-                            <li>工作室經營訣竅</li>
-                            <li>行銷與品牌經營</li>
-                            <li>客戶諮詢與管理</li>
-                            <li>課程排程管理</li>
-                            <li>證照考試準備</li>
+                            <li>體態評估</li>
+                            <li>教學實作</li>
+                            <li>兩次免費複訓機會</li>
+                            <li>結訓後協助排課設計</li>
+                            <li>結訓後官方導師群組和合作平台</li>
                         </ul>
                     </div>
                 </div>
@@ -1415,7 +1424,7 @@
             <div class="footer-section">
                 <h4>聯絡我們</h4>
                 <a href="#contact">聯絡表單</a>
-                <a href="/cdn-cgi/l/email-protection#f0999e969fb0899989859ede939f9d">電子郵件: <span class="__cf_email__" data-cfemail="741d1a121b340d1d0d011a5a171b19">[email&#160;protected]</span></a>
+                <a href="/cdn-cgi/l/email-protection#305b5f42555140595c5144554370575d51595c1e535f5d">電子郵件: <span class="__cf_email__" data-cfemail="5e35312c3b3f2e37323f2a3b2d1e39333f3732703d3133">[email&#160;protected]</span></a>
             </div>
             <div class="footer-section">
                 <h4>招聘資訊</h4>
@@ -1440,7 +1449,7 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Scroll animation observer
         const observerOptions = {
             threshold: 0.1,
@@ -1700,3 +1709,5 @@
             }
         });
     </script>
+</body>
+</html>
