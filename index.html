@@ -6,16 +6,8 @@
     <title>YIYUN 皮拉提斯 | 身心平衡之旅</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200;300;400;500;600;700&family=Noto+Serif+KR:wght@200;300;400;500;600;700&family=Noto+Serif+SC:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        @font-face {
-            font-family: 'WenDing PL BaoSong';
-            src: url('gbsn00lp-2.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-        }
-
         :root {
             --white: #FFFFFF;
             --off-white: #FAFAFA;
@@ -37,7 +29,7 @@
         }
 
         body {
-            font-family: 'WenDing PL BaoSong', 'Noto Serif KR', 'Noto Serif SC', Georgia, serif;
+            font-family: 'Noto Sans TC', sans-serif;
             background-color: var(--off-white);
             color: var(--dark-text);
             line-height: 1.6;
@@ -128,7 +120,7 @@
             color: var(--medium-gray);
             text-decoration: none;
             font-size: 0.85rem;
-            font-weight: 400;
+            font-weight: 200;
             letter-spacing: 0.02em;
             position: relative;
             transition: color 0.3s ease, font-weight 0.2s ease;
@@ -154,13 +146,7 @@
             width: 100%;
         }
 
-        .nav-links a.active {
-            color: var(--dark-text);
-            font-weight: 700;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
+        .nav-links a:hover {
             color: var(--dark-text);
         }
 
@@ -244,7 +230,7 @@
 
         .hero-title {
             font-size: 5rem;
-            font-weight: 300;
+            font-weight: 200;
             letter-spacing: 0.2em;
             margin-bottom: 1.5rem;
             color: #ffffff;
@@ -256,7 +242,7 @@
 
         .hero-subtitle {
             font-size: 1.15rem;
-            font-weight: 400;
+            font-weight: 200;
             letter-spacing: 0.03em;
             color: rgba(255, 255, 255, 0.88);
             margin-bottom: 3rem;
@@ -272,7 +258,7 @@
             backdrop-filter: blur(8px);
             color: #ffffff;
             font-size: 0.8rem;
-            font-weight: 600;
+            font-weight: 200;
             letter-spacing: 0.12em;
             text-transform: uppercase;
             border-radius: 20px;
@@ -412,7 +398,7 @@
         .btn {
             padding: 1rem 2.5rem;
             font-size: 0.9rem;
-            font-weight: 500;
+            font-weight: 200;
             letter-spacing: 0.05em;
             border: none;
             cursor: pointer;
@@ -453,7 +439,7 @@
 
         .section-title h2 {
             font-size: 2.5rem;
-            font-weight: 300;
+            font-weight: 200;
             letter-spacing: 0.15em;
             color: var(--dark-text);
             margin-bottom: 0.8rem;
@@ -464,7 +450,7 @@
             font-size: 1rem;
             color: var(--medium-gray);
             letter-spacing: 0.03em;
-            font-weight: 400;
+            font-weight: 200;
         }
 
         /* Contents Section */
@@ -489,7 +475,7 @@
 
         .category-header h3 {
             font-size: 2rem;
-            font-weight: 300;
+            font-weight: 200;
             letter-spacing: 0.1em;
             color: var(--dark-text);
             margin-bottom: 0.8rem;
@@ -498,7 +484,7 @@
 
         .category-main-title {
             font-size: 2rem;
-            font-weight: 300;
+            font-weight: 200;
             letter-spacing: 0.1em;
             color: var(--dark-text);
             margin-bottom: 0.6rem;
@@ -509,7 +495,7 @@
             font-size: 1rem;
             color: var(--medium-gray);
             margin-bottom: 0.8rem;
-            font-weight: 400;
+            font-weight: 200;
         }
 
         .category-header .tag {
@@ -521,7 +507,7 @@
             letter-spacing: 0.1em;
             margin-top: 0.5rem;
             border-radius: 20px;
-            font-weight: 500;
+            font-weight: 200;
             text-transform: uppercase;
         }
 
@@ -549,7 +535,7 @@
 
         .training-card .card-body h4 {
             font-size: 1.1rem;
-            font-weight: 700;
+            font-weight: 200;
             margin-bottom: 1.4rem;
             color: var(--dark-text);
             padding-bottom: 0.8rem;
@@ -605,6 +591,17 @@
             display: block;
         }
 
+        .modal-image.has-avatar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #d4e5e8 0%, #b8d4d9 100%);
+            font-size: 80px;
+            font-weight: 200;
+            color: white;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
         .modal-image img {
             width: 100%;
             height: 100%;
@@ -657,7 +654,7 @@
 
         .modal-title {
             font-size: 1.8rem;
-            font-weight: 600;
+            font-weight: 200;
             color: var(--dark-text);
             margin-bottom: 1.5rem;
             letter-spacing: 0.01em;
@@ -686,7 +683,7 @@
             position: absolute;
             left: 0;
             color: var(--dark-text);
-            font-weight: bold;
+            font-weight: 200;
         }
 
         /* 카드에 클릭 커서 추가 */
@@ -755,7 +752,7 @@
 
         .card-body h4 {
             font-size: 1.15rem;
-            font-weight: 600;
+            font-weight: 200;
             margin-bottom: 1.2rem;
             color: var(--dark-text);
             line-height: 1.4;
@@ -763,7 +760,7 @@
         }
 
         .card-body .details {
-            font-family: 'Noto Serif TC', 'Noto Serif SC', 'Noto Serif KR', serif;
+            font-family: 'Noto Sans TC', sans-serif;
             font-size: 0.9rem;
             color: var(--medium-gray);
             line-height: 2;
@@ -771,7 +768,7 @@
         }
 
         .card-body .details li {
-            font-family: 'Noto Serif TC', 'Noto Serif SC', 'Noto Serif KR', serif;
+            font-family: 'Noto Sans TC', sans-serif;
             list-style: none;
             padding-left: 0;
             position: relative;
@@ -781,7 +778,7 @@
 
         /* 영어 텍스트는 Regular (400) */
         .card-body .details li span[lang="en"] {
-            font-weight: 400;
+            font-weight: 200;
         }
 
         /* 중국어 전각 쉼표 (、) 스타일 조정 */
@@ -836,12 +833,12 @@
             justify-content: center;
             font-size: 2.2rem;
             color: white;
-            font-weight: 300;
+            font-weight: 200;
         }
 
         .instructor-name {
             font-size: 1.3rem;
-            font-weight: 600;
+            font-weight: 200;
             margin-bottom: 0.4rem;
             color: var(--dark-text);
             letter-spacing: 0.02em;
@@ -871,7 +868,7 @@
 
         .footer-section h4 {
             font-size: 1.1rem;
-            font-weight: 600;
+            font-weight: 200;
             letter-spacing: 0.05em;
             margin-bottom: 1.2rem;
             color: var(--white);
@@ -987,10 +984,6 @@
 
             .nav-links a::after {
                 display: none;
-            }
-
-            .nav-links a.active {
-                background: var(--soft-gray);
             }
 
             .hero-title {
@@ -1133,7 +1126,7 @@
         
         <ul class="nav-links">
             <li><a href="#courses">課程介紹</a></li>
-            <li><a href="#instructors">講師介紹</a></li>
+            <li><a href="#instructors">導師介紹</a></li>
             <li><a href="#training">皮拉提斯導師培訓課程</a></li>
             <li><a href="#contact">聯絡我們</a></li>
         </ul>
@@ -1167,27 +1160,27 @@
                 </div>
                 <div class="hero-overlay"></div>
                 <div class="hero-content">
-                    <span class="hero-badge">招聘</span>
-                    <h1 class="hero-title" style="font-size: 3.5rem;">教練招募</h1>
-                    <p class="hero-subtitle">誠徵與 KPIA 一同成長的<br>熱情皮拉提斯教練</p>
+                    <span class="hero-badge">預約</span>
+                    <h1 class="hero-title" style="font-size: 3.5rem;">韓式皮拉提斯課程</h1>
+                    <p class="hero-subtitle">1:1私教課程/小班精緻團課<br>台北據點</p>
                     <div class="hero-cta">
-                        <a href="#contact" class="btn btn-primary">立即應徵</a>
+                        <a href="#contact" class="btn btn-primary">預約課程</a>
                     </div>
                 </div>
             </div>
 
-            <!-- 슬라이드 3: 합격 축하 -->
+            <!-- 슬라이드 3: 孕婦工作坊 -->
             <div class="hero-slide">
                 <div class="hero-bg">
                     <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1600&h=900&fit=crop&q=90&auto=format" alt="">
                 </div>
                 <div class="hero-overlay"></div>
                 <div class="hero-content">
-                    <span class="hero-badge">恭賀</span>
-                    <h1 class="hero-title" style="font-size: 3rem;">恭賀教練錄取</h1>
-                    <p class="hero-subtitle">誠摯恭賀新進教練錄取<br>歡迎加入 KPIA 大家庭 🎉</p>
+                    <span class="hero-badge">報名中</span>
+                    <h1 class="hero-title" style="font-size: 3rem;">孕婦 產前產後皮拉提斯工作坊</h1>
+                    <p class="hero-subtitle">4/16-4/17<br>早鳥優惠中</p>
                     <div class="hero-cta">
-                        <a href="#instructors" class="btn btn-primary">認識教練</a>
+                        <a href="#courses" class="btn btn-primary">了解課程</a>
                     </div>
                 </div>
             </div>
@@ -1223,7 +1216,7 @@
                             <li>古典&現代墊上課程/小道具</li>
                             <li>四大器械</li>
                             <li>教學實戰與帶課邏輯</li>
-                            <li>課程天數: 12天+1天考核</li>
+                            <li>課程天數：12天+1天考核</li>
                         </ul>
                     </div>
                 </div>
@@ -1238,7 +1231,7 @@
                             <li>依孕週設計課程的實戰能力</li>
                             <li>動作調整與輔具應用</li>
                             <li>症狀觀察與個別化指導</li>
-                            <li>課程天數: 2天課程(共10小時)</li>
+                            <li>課程天數：2天(共10小時)</li>
                         </ul>
                     </div>
                 </div>
@@ -1268,7 +1261,7 @@
                             <li>個人身體評估與目標設定</li>
                             <li>即時動作修正與細節指導</li>
                             <li>進度追蹤與成果管理</li>
-                            <li>課程時間: 60分鐘</li>
+                            <li>課程時間：60分鐘</li>
                         </ul>
                     </div>
                 </div>
@@ -1277,13 +1270,13 @@
                         <img src="https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?w=600&h=440&fit=crop&q=80&auto=format" alt="復健皮拉提斯" loading="lazy">
                     </div>
                     <div class="card-body">
-                        <h4>器械皮拉提斯團體課程</h4>
+                        <h4>韓式皮拉提斯團體課程</h4>
                         <ul class="details">
                             <li>小班制精準指導</li>
                             <li>器械輔助提升訓練效果</li>
                             <li>全身整合訓練</li>
                             <li>韓式皮拉提斯</li>
-                            <li>課程時間: 60分鐘</li>
+                            <li>課程時間：60分鐘</li>
                         </ul>
                     </div>
                 </div>
@@ -1313,18 +1306,17 @@
             </div>
             <div class="instructors-grid">
                 <div class="instructor-card fade-in">
-                    <div class="instructor-image" style="display: none;">
-                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=400&fit=crop&q=80&auto=format" alt="YI CHIEH" loading="lazy">
+                    <div class="instructor-image">
+                        <img src="https://perry1995world.github.io/yiyun/IMG/CON-3/YI/thum.png" alt="YI CHIEH" loading="lazy" style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; margin: 0 auto 1.2rem;">
                     </div>
-                    <div class="instructor-avatar">Y</div>
+                    <div class="instructor-image" style="display: none;">
+                        <img src="https://perry1995world.github.io/yiyun/IMG/CON-3/YI/full.png" alt="YI CHIEH" loading="lazy">
+                    </div>
                     <h4 class="instructor-name">YI CHIEH</h4>
                     <p>皮拉提斯導師</p>
                     <p style="font-size: 0.85rem; margin-top: 0.5rem; color: var(--medium-gray);">KPIA認證導師</p>
                 </div>
                 <div class="instructor-card fade-in">
-                    <div class="instructor-image" style="display: none;">
-                        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&h=400&fit=crop&q=80&auto=format" alt="Finna" loading="lazy">
-                    </div>
                     <div class="instructor-avatar">F</div>
                     <h4 class="instructor-name">Finna</h4>
                     <p>皮拉提斯導師</p>
@@ -1344,9 +1336,9 @@
                     <div class="card-body">
                         <h4>12天培訓課程</h4>
                         <ul class="details">
-                            <li>韓國主流體系, 國際雙認證 (韓國政府+美國協會)</li>
-                            <li>教學內容專為亞洲人體型設計, 動作更安全有效</li>
-                            <li>獨家 "韓式皮拉提斯" 教學系統</li>
+                            <li>韓國主流體系、國際雙認證（韓國政府＋美國協會）</li>
+                            <li>教學內容專為亞洲人體型設計、動作更安全有效</li>
+                            <li>獨家「韓式皮拉提斯」教學系統</li>
                             <li>精緻小班制培訓班</li>
                             <li>結業後提供導師合作平台</li>
                         </ul>
@@ -1359,7 +1351,7 @@
                             <li>人體肌骨系統結構</li>
                             <li>動作分析與評估</li>
                             <li>運動原理</li>
-                            <li>呼吸, 核心啟動</li>
+                            <li>呼吸、核心啟動</li>
                             <li>鬆解法</li>
                         </ul>
                     </div>
@@ -1369,7 +1361,7 @@
                         <h4>墊上皮拉提斯</h4>
                         <ul class="details">
                             <li>古典皮拉提斯29個動作</li>
-                            <li>現代墊上皮拉提斯48個動作</li>
+                            <li>現代皮拉提斯48個動作</li>
                             <li>進階和退階動作設計</li>
                             <li>口令與教學技巧</li>
                             <li>編排設計</li>
@@ -1381,7 +1373,7 @@
                         <h4>四大器械教學</h4>
                         <ul class="details">
                             <li><span lang="en">Reformer</span></li>
-                            <li><span lang="en">Cadillac</span>, <span lang="en">Chair</span>, <span lang="en">Barrel</span> 應用</li>
+                            <li><span lang="en">Cadillac、Chair、Barrel</span> 應用</li>
                             <li>壁掛彈簧板</li>
                             <li>口令與教學技巧</li>
                             <li>編排設計</li>
@@ -1392,8 +1384,8 @@
                     <div class="card-body">
                         <h4>小道具運用</h4>
                         <ul class="details">
-                            <li>(皮拉提斯彈力環, 彈力帶, 瑜伽球, 泡沫軸) 100個動作</li>
-                            <li>(波速球, 瑜伽大球, 沙球) 102個動作</li>
+                            <li>(皮拉提斯彈力環 彈力帶 瑜伽球 泡沫軸) 100個動作</li>
+                            <li>(波速球 瑜伽大球 沙球) 102個動作</li>
                             <li>特殊人群運動康復訓練</li>
                             <li>授課技巧和實操</li>
                             <li>帶入多樣性與課程特色</li>
@@ -1433,18 +1425,18 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h4>YIYUN Pilates</h4>
-                <p>尋找身心平衡的旅程</p>
-                <p>專業而溫馨的皮拉提斯工作室</p>
+                <p>KPIA 皮拉提斯教育機構</p>
+                <p>韓式皮拉提斯</p>
             </div>
             <div class="footer-section">
                 <h4>聯絡我們</h4>
-                <a href="#contact">聯絡表單</a>
-                <a href="/cdn-cgi/l/email-protection#305b5f42555140595c5144554370575d51595c1e535f5d">電子郵件: <span class="__cf_email__" data-cfemail="5e35312c3b3f2e37323f2a3b2d1e39333f3732703d3133">[email&#160;protected]</span></a>
+                <a href="#">LINE : @519mxbgt</a>
+                <a href="mailto:kpia.twkr@gmail.com">電子郵件 : kpia.twkr@gmail.com</a>
             </div>
             <div class="footer-section">
-                <h4>招聘資訊</h4>
-                <a href="#recruitment">教練招募</a>
-                <a href="#training">教練培訓課程</a>
+                <h4>報名資訊</h4>
+                <a href="#training">導師培訓</a>
+                <a href="#courses">韓式皮拉提斯課程</a>
             </div>
             <div class="footer-section">
                 <h4>社群媒體</h4>
@@ -1464,7 +1456,7 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Scroll animation observer
         const observerOptions = {
             threshold: 0.1,
@@ -1526,62 +1518,6 @@
                 }
             });
         });
-
-        // Active nav link on scroll
-        function updateActiveNav() {
-            const navLinks = document.querySelectorAll('.nav-links a');
-            const scrollPos = window.scrollY + 300; // 헤더 높이 + 여유
-            
-            let currentSection = '';
-            
-            // 각 섹션 확인
-            const courses = document.querySelector('#courses');
-            const instructors = document.querySelector('#instructors');
-            const training = document.querySelector('#training');
-            const contact = document.querySelector('#contact');
-            
-            const sections = [
-                { id: '#courses', element: courses },
-                { id: '#instructors', element: instructors },
-                { id: '#training', element: training },
-                { id: '#contact', element: contact }
-            ];
-            
-            // 현재 스크롤 위치에 해당하는 섹션 찾기
-            for (let i = sections.length - 1; i >= 0; i--) {
-                const section = sections[i];
-                if (section.element) {
-                    const sectionTop = section.element.offsetTop;
-                    if (scrollPos >= sectionTop - 100) {
-                        currentSection = section.id;
-                        break;
-                    }
-                }
-            }
-            
-            // 최상단에서는 active 제거
-            if (window.scrollY < 200) {
-                currentSection = '';
-            }
-            
-            // active 클래스 업데이트
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (currentSection && link.getAttribute('href') === currentSection) {
-                    link.classList.add('active');
-                }
-            });
-        }
-        
-        // 스크롤 이벤트 (디바운싱)
-        let scrollTimer;
-        window.addEventListener('scroll', () => {
-            if (scrollTimer) clearTimeout(scrollTimer);
-            scrollTimer = setTimeout(updateActiveNav, 100);
-        });
-        
-        // 페이지 로드 시 실행
-        window.addEventListener('load', updateActiveNav);
 
         // ── Hamburger Menu ──────────────────────────────────────
         const hamburger = document.querySelector('.hamburger');
@@ -1647,7 +1583,7 @@
         }
 
         function startHeroTimer() {
-            heroTimer = setInterval(heroNext, 3000);
+            heroTimer = setInterval(heroNext, 5000);
         }
 
         function stopHeroTimer() {
@@ -1696,17 +1632,31 @@
             card.addEventListener('click', () => {
                 const title = card.querySelector('h4').textContent;
                 const details = card.querySelector('.details, p');
-                const imageElement = card.querySelector('.card-image img, .instructor-image img');
+                // 숨겨진 이미지 우선 (모달용), 없으면 보이는 이미지
+                const hiddenImage = card.querySelector('.instructor-image[style*="display: none"] img, .card-image img');
+                const visibleImage = card.querySelector('.instructor-image:not([style*="display: none"]) img, .card-image img');
+                const imageElement = hiddenImage || visibleImage;
                 
                 modalTitle.textContent = title;
                 
                 // 이미지 처리
+                const avatarElement = card.querySelector('.instructor-avatar');
+                
                 if (imageElement) {
                     modalImage.style.backgroundImage = `url(${imageElement.src})`;
                     modalImage.classList.add('has-image');
-                } else {
+                    modalImage.classList.remove('has-avatar');
+                    modalImage.textContent = '';
+                } else if (avatarElement) {
+                    // 아바타가 있으면 CSS로 표시
                     modalImage.style.backgroundImage = '';
                     modalImage.classList.remove('has-image');
+                    modalImage.classList.add('has-avatar');
+                    modalImage.textContent = avatarElement.textContent;
+                } else {
+                    modalImage.style.backgroundImage = '';
+                    modalImage.classList.remove('has-image', 'has-avatar');
+                    modalImage.textContent = '';
                 }
                 
                 // 내용 처리
