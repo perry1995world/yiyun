@@ -1075,6 +1075,203 @@
             }
         }
 
+        /* ── Schedule Section ── */
+        .schedule-filter {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 2rem;
+            font-size: 0.85rem;
+            font-family: 'Noto Sans TC', sans-serif;
+            font-weight: 300;
+            letter-spacing: 0.08em;
+            border: 1.5px solid var(--light-gray);
+            background: var(--white);
+            color: var(--medium-gray);
+            cursor: pointer;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--dark-text);
+            color: var(--dark-text);
+        }
+
+        .filter-btn.active {
+            background: var(--dark-text);
+            color: var(--white);
+            border-color: var(--dark-text);
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.8rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .schedule-card {
+            background: var(--white);
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.35s ease;
+        }
+
+        .schedule-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(44,44,44,0.09);
+            border-color: transparent;
+        }
+
+        .schedule-card.hidden {
+            display: none;
+        }
+
+        .schedule-card-header {
+            padding: 1.4rem 1.8rem;
+            background: var(--warm-beige);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .schedule-location {
+            font-size: 0.78rem;
+            font-weight: 400;
+            letter-spacing: 0.06em;
+            color: var(--medium-gray);
+            text-transform: uppercase;
+        }
+
+        .schedule-type-badge {
+            font-size: 0.72rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            padding: 0.25rem 0.85rem;
+            border-radius: 20px;
+        }
+
+        .badge-weekday {
+            background: #D4E5E8;
+            color: #4a7a82;
+        }
+
+        .badge-weekend {
+            background: #EFE8E0;
+            color: #7a6a55;
+        }
+
+        .badge-all {
+            background: var(--light-gray);
+            color: var(--medium-gray);
+        }
+
+        .schedule-card-body {
+            padding: 1.6rem 1.8rem;
+        }
+
+        .schedule-session-title {
+            font-size: 1.1rem;
+            font-weight: 300;
+            letter-spacing: 0.04em;
+            color: var(--dark-text);
+            margin-bottom: 1.2rem;
+        }
+
+        .schedule-dates {
+            list-style: none;
+            margin-bottom: 1.2rem;
+        }
+
+        .schedule-dates li {
+            font-size: 0.88rem;
+            color: var(--medium-gray);
+            line-height: 1.9;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .schedule-dates li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--light-gray);
+        }
+
+        .schedule-dates li strong {
+            font-weight: 400;
+            color: var(--dark-text);
+        }
+
+        .schedule-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 1.2rem;
+            border-top: 1px solid var(--light-gray);
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .schedule-time {
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: var(--dark-text);
+            letter-spacing: 0.02em;
+        }
+
+        .schedule-earlybird {
+            font-size: 0.75rem;
+            color: #b08050;
+            background: #fdf5ec;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            border: 1px solid #f0dcc0;
+            letter-spacing: 0.03em;
+        }
+
+        .schedule-exam {
+            font-size: 0.78rem;
+            color: var(--medium-gray);
+            background: var(--soft-gray);
+            padding: 0.35rem 0.9rem;
+            border-radius: 3px;
+            letter-spacing: 0.04em;
+            margin-top: 0.6rem;
+            display: inline-block;
+        }
+
+        .schedule-min-notice {
+            font-size: 0.78rem;
+            color: #888;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        .schedule-notice {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.85rem;
+            color: var(--medium-gray);
+            letter-spacing: 0.04em;
+        }
+
+        @media (max-width: 768px) {
+            .schedule-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 480px) {
             .logo-svg {
                 width: 77px;
@@ -1133,6 +1330,7 @@
             <li><a href="#courses">課程介紹</a></li>
             <li><a href="#instructors">導師介紹</a></li>
             <li><a href="#training">皮拉提斯導師培訓課程</a></li>
+            <li><a href="#schedule">培訓時程</a></li>
             <li><a href="#contact">聯絡我們</a></li>
         </ul>
     </nav>
@@ -1418,6 +1616,150 @@
         </div>
     </section>
 
+        <!-- 시간표 섹션 -->
+        <div class="contents-category" id="schedule">
+            <div class="category-header">
+                <h2 class="category-main-title">培訓時程</h2>
+                <p class="category-sub">KPIA X PILATES 2026 培訓班 교육 일정</p>
+                <span class="tag">SCHEDULE 2026</span>
+            </div>
+
+            <!-- 필터 버튼 -->
+            <div class="schedule-filter">
+                <button class="filter-btn active" data-filter="all">전체 보기</button>
+                <button class="filter-btn" data-filter="weekday">평일반</button>
+                <button class="filter-btn" data-filter="weekend">주말반</button>
+            </div>
+
+            <div class="schedule-grid">
+
+                <!-- 1기 평일반: 3월~4월 타이베이 -->
+                <div class="schedule-card" data-type="weekday">
+                    <div class="schedule-card-header">
+                        <span class="schedule-location">타이베이 / 국부기념관</span>
+                        <span class="schedule-type-badge badge-weekday">평일반</span>
+                    </div>
+                    <div class="schedule-card-body">
+                        <h4 class="schedule-session-title">2026년 3월 – 4월 1기</h4>
+                        <ul class="schedule-dates">
+                            <li><strong>3월</strong> 3/16, 17, 23, 24, 30, 31</li>
+                            <li><strong>4월</strong> 4/13, 14, 15, 20, 21, 22</li>
+                        </ul>
+                        <span class="schedule-exam">시험일 5/1</span>
+                        <div class="schedule-meta">
+                            <span class="schedule-time">09:00 – 17:00</span>
+                            <span class="schedule-earlybird">얼리버드 2/2까지</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1기 주말반: 3월~4월 타이베이 -->
+                <div class="schedule-card" data-type="weekend">
+                    <div class="schedule-card-header">
+                        <span class="schedule-location">타이베이 / 국부기념관</span>
+                        <span class="schedule-type-badge badge-weekend">주말반</span>
+                    </div>
+                    <div class="schedule-card-body">
+                        <h4 class="schedule-session-title">2026년 3월 – 4월 1기</h4>
+                        <ul class="schedule-dates">
+                            <li><strong>3월</strong> 3/14, 15, 21, 22, 28, 29</li>
+                            <li><strong>4월</strong> 4/11, 12, 18, 19, 25, 26</li>
+                        </ul>
+                        <span class="schedule-exam">시험일 5/1</span>
+                        <div class="schedule-meta">
+                            <span class="schedule-time">09:00 – 17:00</span>
+                            <span class="schedule-earlybird">얼리버드 2/2까지</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2기 평일반: 5월~6월 타이베이 -->
+                <div class="schedule-card" data-type="weekday">
+                    <div class="schedule-card-header">
+                        <span class="schedule-location">타이베이 / 국부기념관</span>
+                        <span class="schedule-type-badge badge-weekday">평일반</span>
+                    </div>
+                    <div class="schedule-card-body">
+                        <h4 class="schedule-session-title">2026년 5월 – 6월 2기</h4>
+                        <ul class="schedule-dates">
+                            <li><strong>5월</strong> 5/25, 26, 27, 28</li>
+                            <li><strong>6월</strong> 6/1, 2, 3, 8, 9, 10, 15, 16</li>
+                        </ul>
+                        <span class="schedule-exam">시험일 7/1</span>
+                        <p class="schedule-min-notice">* 4인 이상 개강</p>
+                        <div class="schedule-meta">
+                            <span class="schedule-time">09:00 – 17:00</span>
+                            <span class="schedule-earlybird">얼리버드 3/27까지</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2기 주말반: 5월~6월 타이베이 -->
+                <div class="schedule-card" data-type="weekend">
+                    <div class="schedule-card-header">
+                        <span class="schedule-location">타이베이 / 국부기념관</span>
+                        <span class="schedule-type-badge badge-weekend">주말반</span>
+                    </div>
+                    <div class="schedule-card-body">
+                        <h4 class="schedule-session-title">2026년 5월 – 6월 2기</h4>
+                        <ul class="schedule-dates">
+                            <li><strong>5월</strong> 5/23, 24, 30, 31</li>
+                            <li><strong>6월</strong> 6/6, 7, 13, 14, 20, 21, 27, 28</li>
+                        </ul>
+                        <span class="schedule-exam">시험일 7/1</span>
+                        <p class="schedule-min-notice">* 4인 이상 개강</p>
+                        <div class="schedule-meta">
+                            <span class="schedule-time">09:00 – 17:00</span>
+                            <span class="schedule-earlybird">얼리버드 3/27까지</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3기 평일반: 7월 타이베이 -->
+                <div class="schedule-card" data-type="weekday">
+                    <div class="schedule-card-header">
+                        <span class="schedule-location">타이베이 / 국부기념관</span>
+                        <span class="schedule-type-badge badge-weekday">평일반</span>
+                    </div>
+                    <div class="schedule-card-body">
+                        <h4 class="schedule-session-title">2026년 7월 3기</h4>
+                        <ul class="schedule-dates">
+                            <li><strong>7월</strong> 7/13–16, 20–23, 27–30</li>
+                        </ul>
+                        <span class="schedule-exam">시험일 8/3</span>
+                        <p class="schedule-min-notice">* 4인 이상 개강</p>
+                        <div class="schedule-meta">
+                            <span class="schedule-time">09:00 – 17:00</span>
+                            <span class="schedule-earlybird">얼리버드 5/14까지</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4기 평일반: 9월 가오슝 -->
+                <div class="schedule-card" data-type="weekday">
+                    <div class="schedule-card-header">
+                        <span class="schedule-location">가오슝 / 신쭤잉</span>
+                        <span class="schedule-type-badge badge-weekday">평일반</span>
+                    </div>
+                    <div class="schedule-card-body">
+                        <h4 class="schedule-session-title">2026년 9월 4기</h4>
+                        <ul class="schedule-dates">
+                            <li><strong>9월</strong> 9/7–10, 14–17, 21–24</li>
+                        </ul>
+                        <span class="schedule-exam">시험일 9/28</span>
+                        <p class="schedule-min-notice">* 6인 이상 개강</p>
+                        <div class="schedule-meta">
+                            <span class="schedule-time">10:00 – 18:00</span>
+                            <span class="schedule-earlybird">얼리버드 7/9까지</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /.schedule-grid -->
+
+            <p class="schedule-notice">※ 강좌 변경 시 재공지 예정</p>
+        </div>
+
     <!-- 모달 -->
     <div class="modal" id="courseModal">
         <div class="modal-overlay"></div>
@@ -1467,6 +1809,22 @@
     </footer>
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // ── Schedule Filter ──────────────────────────────────────
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                document.querySelectorAll('.schedule-card').forEach(card => {
+                    if (filter === 'all' || card.dataset.type === filter) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
         // Scroll animation observer
         const observerOptions = {
             threshold: 0.1,
@@ -1716,3 +2074,4 @@
     </script>
 </body>
 </html>
+
